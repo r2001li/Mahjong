@@ -111,7 +111,7 @@ class WinningHand:
 
 window = Tk()
 window.title("两人麻将")
-window.geometry("900x600")
+window.geometry("1360x600")
 
 allTiles = []
 
@@ -508,7 +508,7 @@ def SortOut():
 
         tile.setIndex(i)
         tile.setFace(True)
-        tile.moveTo(34 + (i % 13) * 50, playerOutY - (i - i % 13) / 13 * 22)
+        tile.moveTo(34 + (i % 20) * 50, playerOutY - (i - i % 20) / 20 * 86)
         tile.unbind("<ButtonPress>")
 
     for i in range(0, len(cpuOut)):
@@ -516,7 +516,7 @@ def SortOut():
 
         tile.setIndex(i)
         tile.setFace(True)
-        tile.moveTo(34 + (i % 13) * 50, cpuOutY + (i - i % 13) / 13 * 22)
+        tile.moveTo(34 + (i % 20) * 50, cpuOutY + (i - i % 20) / 20 * 86)
 
 
 def Check(type, isZi):

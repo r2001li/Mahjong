@@ -255,8 +255,6 @@ def OnButtonDrawClick():
 
     result = AnalyzeHand(playerHand)
     if result:
-        showinfo(message="玩家Win!")
-        RevealHands()
         buttonWin["state"] = NORMAL
         return
 
@@ -298,10 +296,8 @@ def OnButtonCatchClick():
     SortHands()
     SortOut()
 
-    result = AnalyzeHand(cpuHand)
+    result = AnalyzeHand(playerHand)
     if result:
-        showinfo(message="玩家Win!")
-        RevealHands()
         buttonWin["state"] = NORMAL
         return
 
@@ -342,10 +338,12 @@ def CPUTurn():
 
     result = AnalyzeHand(cpuHand)
     if result:
+        '''
         buttonChi["state"] = DISABLED
         buttonPeng["state"] = DISABLED
         buttonDraw["state"] = DISABLED
         buttonEliminate["state"] = DISABLED
+        '''
 
         RevealHands()
         showinfo(message="对手Win!")
@@ -510,7 +508,7 @@ def SortOut():
 
         tile.setIndex(i)
         tile.setFace(True)
-        tile.moveTo(34 + (i % 13) * 50, playerOutY - (i - i % 13) / 13 * 16)
+        tile.moveTo(34 + (i % 13) * 50, playerOutY - (i - i % 13) / 13 * 22)
         tile.unbind("<ButtonPress>")
 
     for i in range(0, len(cpuOut)):
@@ -518,7 +516,7 @@ def SortOut():
 
         tile.setIndex(i)
         tile.setFace(True)
-        tile.moveTo(34 + (i % 13) * 50, cpuOutY + (i - i % 13) / 13 * 16)
+        tile.moveTo(34 + (i % 13) * 50, cpuOutY + (i - i % 13) / 13 * 22)
 
 
 def Check(type, isZi):
